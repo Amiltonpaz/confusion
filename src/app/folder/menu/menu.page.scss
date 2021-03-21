@@ -1,0 +1,39 @@
+
+ion-card {
+  position:relative;
+  text-align: center;
+}
+
+.card-background-image {
+  background-size: cover!important;
+}
+.card-title {
+  position: absolute;
+  top:36%;
+  font-size: 2.0em;
+  width: 100%;
+  font-weight: bold;
+  color: #fff;
+}
+.card-subtitle {
+  font-size: 1.0em;
+  position: absolute;
+  top:52%;
+  width: 100%;
+  color: #fff;
+}
+
+.spinner {
+  margin: auto 50% auto 50%;
+}
+
+#container {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: auto;
+}
+

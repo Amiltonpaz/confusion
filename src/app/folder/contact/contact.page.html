@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Contatos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-subtitle color="primary">Our Address</ion-card-subtitle>
+    <ion-card-content class="contatos">
+      <p>
+        121, Clear Water Bay Road
+        Clear Water Bay, Kowloon
+        HONG KONG
+      </p>
+      <p><ion-icon name="call"></ion-icon> Tel: +852 1234 5678</p>
+      <p><ion-icon name="print"></ion-icon> Fax: +852 8765 4321</p>
+      <p><ion-icon name="mail"></ion-icon> Email:confusion@food.net</p>
+
+    </ion-card-content>
+    <div class="row">
+
+        <ion-buttons>
+          <ion-button>
+            <ion-icon icon-left name="call" color="primary"></ion-icon>Ligar
+          </ion-button>
+          <ion-button (click)="sendEmail()">
+            <ion-icon  name="mail" color="primary"></ion-icon>Email
+          </ion-button>
+        </ion-buttons>
+    </div>
+
+
+  </ion-card>
+</ion-content>

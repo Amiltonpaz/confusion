@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title slot="end">Cardápio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <div  *ngIf="dishes">
+
+    <ion-grid>
+
+      <ion-row>
+
+        <ion-col size="12" size-lg="4" *ngFor="let dish of dishes">
+
+          <ion-card (click)="dishSelected($event, dish)" (ionSwipe)="addFavorite($event, dish)">
+            <ion-img src="{{ API+dish.image  }}"></ion-img>
+            <div class="card-title">{{ dish.name }}</div>
+            <div class="card-subtitle">{{ dish.description }}</div>
+          </ion-card>
+         </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <!--div class="spinner" [hidden]="dishes || errMess">
+    <ion-spinner color="primary" name="dots"></ion-spinner>
+  </div>
+
+  <div-- *ngIf="errMess" class="container">
+    <h2>Error</h2>
+    <h4>{{ errMess }}</h4>
+  </div-->
+
+  <div *ngIf="!dishes">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+             <!-- Card Skeleton -->
+         <ion-card *ngIf="!dishes">
+          <ion-skeleton-text animated style="height: 150px;"></ion-skeleton-text>
+          <ion-card-content>
+            <ion-card-title>
+              <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+            </ion-card-title>
+            <p>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+              <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+            </p>
+          </ion-card-content>
+
+          </ion-card>
+
+
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+             <!-- Card Skeleton -->
+         <ion-card *ngIf="!dishes">
+
+          <ion-card-content>
+            <ion-skeleton-text animated style="height: 150px;"></ion-skeleton-text>
+            <ion-card-title>
+              <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+            </ion-card-title>
+            <p>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+              <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+            </p>
+          </ion-card-content>
+
+          </ion-card>
+
+
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+             <!-- Card Skeleton -->
+         <ion-card *ngIf="!dishes">
+
+          <ion-card-content>
+            <ion-skeleton-text animated style="height: 150px;"></ion-skeleton-text>
+            <ion-card-title>
+              <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+            </ion-card-title>
+            <p>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+              <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+            </p>
+          </ion-card-content>
+
+          </ion-card>
+
+
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
+  </div>
+
+
+</ion-content>

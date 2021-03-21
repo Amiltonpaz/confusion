@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title slot="end">Meus Favoritos</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="favorites">
+    <ion-list>
+      <ion-item-group>
+      <ion-item-sliding *ngFor="let favorite of favorites" #item>
+        <ion-item>
+
+          <ion-row>
+            <ion-col>
+              <div>
+                <ion-thumbnail>
+                  <ion-img src="{{ API + favorite.image }}"></ion-img>
+                </ion-thumbnail>
+              </div>
+            </ion-col>
+            <ion-col>
+              <ion-card-subtitle text-wrap>{{ favorite.name }}</ion-card-subtitle>
+            </ion-col>
+          </ion-row>
+
+        </ion-item>
+        <ion-item-options side="end" (ionSwipe)="deleteFavorite(item,favorite)">
+          <ion-item-option color="danger" (click)="deleteFavorite(item,favorite)">
+            <ion-icon name="trash"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+      </ion-item-group>
+    </ion-list>
+  </div>
+
+  <div class="spinner" [hidden]="favorites || errMess">
+    <ion-spinner color="primary" name="dots"></ion-spinner>
+  </div>
+
+  <!--div *ngIf="errMess" class="container">
+    <h2>Error</h2>
+    <h4>{{ errMess }}</h4>
+  </div -->
+  <div class="sem-favoritos" [hidden]="true">
+    <h4>Você ainda não tem pratos favoritos.</h4>
+  </div>
+
+</ion-content>

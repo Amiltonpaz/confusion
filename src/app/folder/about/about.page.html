@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title >Sobre</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title color="primary">Histórico</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        Started in 2010, Ristorante con Fusion quickly established itself as a culinary icon par excellence in Hong Kong. With its unique brand of world fusion cuisine that can be found nowhere else, it enjoys patronage from the A-list clientele in Hong Kong.  Featuring four of the best three-star Michelin chefs in the world, you never know what will arrive on your plate the next time you visit us.
+
+        The restaurant traces its humble beginnings to The Frying Pan, a successful chain started by our CEO, Mr. Peter Pan, that featured for the first time the world's best cuisines in a pan.
+      </p>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="leaders">
+      <ion-card-header>
+        <ion-card-title color="primary">Líderes Corporativos</ion-card-title>
+      </ion-card-header>
+    <ion-card-content *ngFor="let leader of leaders">
+      <ion-avatar>
+        <img src="{{ this.API + leader.image }}">
+      </ion-avatar>
+      <ion-card-title color="primary"> {{ leader.name }}</ion-card-title>
+      <ion-card-subtitle> <strong> {{ leader.designation }} </strong> </ion-card-subtitle>
+      <p>
+        {{ leader.description }}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+   <!-- Card Skeleton -->
+   <ion-card *ngIf="!leaders">
+
+    <ion-card-content>
+      <ion-avatar slot="start"><ion-skeleton-text animated></ion-skeleton-text></ion-avatar>
+      <ion-card-title>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </ion-card-title>
+      <p>
+        <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+      </p>
+    </ion-card-content>
+
+    </ion-card>
+
+</ion-content>

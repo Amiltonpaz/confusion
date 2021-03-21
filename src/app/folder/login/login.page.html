@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+
+    <ion-buttons>
+      <ion-button slot="start"  (click)="goBack()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title slot="end">Login</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="text" formControlName="username"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Senha</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Lembrar</ion-label>
+      <ion-checkbox color="primary" type="text" formControlName="remember"></ion-checkbox>
+    </ion-item>
+    <ion-button type="submit" [disabled]="!loginForm.valid">Entrar</ion-button>
+  </form>
+
+  <p>Clique para criar uma conta. </p>
+    <ion-button (click)="openRegister()">
+      Registrar
+    </ion-button>
+
+</ion-content>

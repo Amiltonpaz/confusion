@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons>
+      <ion-button (click)="goBack()">
+        <span ion-text showWhen="ios"></span>
+        <ion-icon name="close" showWhen="android,windows"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title slot="end">Reservas</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <form [formGroup]=formulario (ngSubmit)="onSubmit()"  >
+    <ion-item>
+      <ion-label position="floating">Nº de convidados</ion-label>
+      <ion-select formControlName="guests">
+        <ion-select-option value=1>1</ion-select-option>
+        <ion-select-option value=2>2</ion-select-option>
+        <ion-select-option value=3>3</ion-select-option>
+        <ion-select-option value=4>4</ion-select-option>
+        <ion-select-option value=5>5</ion-select-option>
+        <ion-select-option value=6>6</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Smoking?</ion-label>
+      <ion-toggle formControlName="smoking" checked="true" slot="end"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Data e Hora</ion-label>
+      <ion-datetime displayTimezone="gmt" displayFormat="DD MMM, YYYY HH:mm A" pickerFormat="DD MMM, YY HH:mm A" formControlName="dateTime"></ion-datetime>
+    </ion-item>
+    <ion-button type="submit" [disabled]="!formulario.valid">Reservar</ion-button>
+
+  </form>
+</ion-content>

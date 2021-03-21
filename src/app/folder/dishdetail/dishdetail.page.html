@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons>
+      <ion-button slot="start" (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+      <ion-title slot="primary">{{ dish.name }}</ion-title>
+      <ion-button slot="end" (click)="mostraActionSheet()">
+        <ion-icon name="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-lg="4">
+
+        <ion-card *ngIf="dish">
+
+          <ion-img src="{{ API+dish.image  }}"></ion-img>
+
+          <ion-card-content>
+
+            <div class="card-subtitle">{{ dish.description }}</div>
+
+          </ion-card-content>
+
+          <ion-row>
+            <ion-col size="4">
+              <ion-icon icon-left color="stars" name="star"></ion-icon>
+              <div> {{ avgStars }} Stars</div>
+            </ion-col>
+            <ion-col size="4">
+              <ion-icon icon-left color="primary" name="chatbox-ellipses"></ion-icon>
+              <div> {{ numComments }} Comments </div>
+            </ion-col>
+          </ion-row>
+
+          <ion-fab class="fab" vertical="top" horizontal="end">
+            <ion-spinner name="dots" *ngIf="favorite === undefined" color="danger"></ion-spinner>
+            <ion-fab-button color="none" class="fav-no" *ngIf="favorite === false" (click)="addFavorite()">
+              <ion-icon color="medium" name="heart-outline"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button color="none" *ngIf="favorite === true" (click)="removeFavorite()">
+              <ion-icon name="heart" color="danger"></ion-icon>
+            </ion-fab-button>
+
+          </ion-fab>
+
+        </ion-card>
+      </ion-col>
+
+      <div class="spinner" [hidden]="dish || errMess" class="container">
+        <ion-spinner color="primary" name="dots"></ion-spinner>
+      </div>
+
+      <div *ngIf="errMess" class="container">
+        <h2>Error</h2>
+        <h4>{{ errMess }}</h4>
+      </div>
+      <ion-col size="12" size-lg="4">
+        <ion-list *ngIf="dish">
+
+          <ion-list-header>
+            <ion-title>Comments</ion-title>
+          </ion-list-header>
+          <ion-item *ngFor="let comment of dish.comments, let i = index" text-wrap>
+
+            <div>
+              <ion-icon color="stars" name="star" *ngFor="let item of estrelas(comment.rating)"></ion-icon>
+              <br>
+
+              <p class="comentarios">
+                " {{ comment.comment }} "
+              </p>
+              <p>
+                <small><strong> -- {{ comment.author }} </strong></small> | <small>{{ comment.date | date }} </small>
+              </p>
+            </div>
+
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-button (click)="modalDismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Criar Comentário</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<form [formGroup]=formulario (ngSubmit)="onSubmit()" >
+
+  <ion-item>
+    <ion-label for="nome" position="floating">Seu Nome</ion-label>
+    <ion-input id="nome" type="text" formControlName="author"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label for="rating" position="floating">Nota</ion-label>
+    <ion-range id="rating" pin="true" min="1" max="5" step="1" snaps="true" color="stars" formControlName="rating">
+      <ion-label slot="start">
+        <ion-icon name="star" color="stars"></ion-icon>
+      </ion-label>
+      <ion-label slot="end">
+        <ion-icon size="small" name="star" color="stars"></ion-icon>
+      </ion-label>
+    </ion-range>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating" for="textarea">Comente</ion-label>
+    <ion-textarea rows="12" id="textarea" formControlName="comment"></ion-textarea>
+  </ion-item>
+
+  <ion-button id="button" type="submit" [disabled]="!formulario.valid">Enviar</ion-button>
+
+</form>
+</ion-content>

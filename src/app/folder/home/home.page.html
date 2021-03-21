@@ -1,0 +1,159 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title slot="end">Destaques</ion-title>
+  </ion-toolbar>
+</ion-header >
+
+<ion-content [fullscreen]="true">
+
+  <ion-grid>
+    <ion-row>
+    <ion-col size="12" size-lg="4" size-xl="4">
+
+        <ion-card *ngIf="dish">
+
+          <ion-img src="{{ baseUrl + dish.image }}"></ion-img>
+          <ion-card-content>
+            <ion-card-title>
+              {{ dish.name | uppercase}}
+            </ion-card-title>
+            <p>
+              {{ dish.description }}
+            </p>
+          </ion-card-content>
+          <ion-icon name="star" color="stars" size="large"></ion-icon>
+        </ion-card>
+
+        <!-- Card Skeleton -->
+         <ion-card *ngIf="!dish">
+
+          <ion-card-content>
+            <ion-skeleton-text animated style="height: 150px;"></ion-skeleton-text>
+            <ion-card-title>
+              <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+            </ion-card-title>
+            <p>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+              <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+            </p>
+          </ion-card-content>
+          <ion-icon> <ion-skeleton-text animated></ion-skeleton-text> </ion-icon>
+        </ion-card>
+
+    </ion-col>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button  color="primary">
+        <ion-icon name="arrow-up">
+      </ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="top">
+        <ion-fab-button class="btn-mail"><ion-icon name="mail"></ion-icon></ion-fab-button>
+        <ion-fab-button class="btn-google-plus"><ion-icon name="logo-googleplus"></ion-icon></ion-fab-button>
+        <ion-fab-button class="btn-youtube"><ion-icon name="logo-youtube"></ion-icon></ion-fab-button>
+        <ion-fab-button class="btn-twitter"><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
+        <ion-fab-button class="btn-facebook"><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
+        <ion-fab-button class="btn-linkedin"><ion-icon name="logo-linkedin"></ion-icon></ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
+
+    <!--div class="spinner" [hidden]="dish || dishErrMess">
+      <ion-spinner color="primary" name="dots"></ion-spinner>
+    </div>
+    <div-- *ngIf="dishErrMess">
+      <h2>Error</h2>
+      <h4>{{ dishErrMess }}</h4>
+    </div-->
+
+    <ion-col size="12" size-lg="4" size-xl="4">
+      <ion-card *ngIf="promotion">
+        <ion-img src="{{ baseUrl + promotion.image }}"></ion-img>
+        <ion-card-content>
+          <ion-card-title>
+            {{ promotion.name | uppercase}}
+          </ion-card-title>
+          <p>
+            {{ promotion.description }}
+          </p>
+        </ion-card-content>
+        <ion-icon name="star" color="stars" size="large"></ion-icon>
+      </ion-card>
+
+       <!-- Card Skeleton -->
+       <ion-card *ngIf="!dish">
+
+        <ion-card-content>
+          <ion-skeleton-text animated style="height: 150px;"></ion-skeleton-text>
+          <ion-card-title>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </ion-card-title>
+          <p>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+          </p>
+        </ion-card-content>
+        <ion-icon> <ion-skeleton-text animated></ion-skeleton-text> </ion-icon>
+      </ion-card>
+
+    </ion-col>
+
+    <!--div class="spinner" [hidden]="promotion || promoErrMess">
+      <ion-spinner color="danger" name="dots"></ion-spinner>
+    </div>
+    <div-- *ngIf="promoErrMess">
+      <h2>Error</h2>
+      <h4>{{ promoErrMess }}</h4>
+    </div-->
+
+    <ion-col size="12" size-lg="4" size-xl="4">
+      <ion-card *ngIf="leader">
+        <ion-img src="{{ baseUrl + leader.image }}"></ion-img>
+
+        <ion-card-content>
+          <ion-card-title>
+            {{ leader.name | uppercase}}
+          </ion-card-title>
+          <p>
+            {{ leader.description }}
+          </p>
+        </ion-card-content>
+        <ion-icon name="star" color="stars" size="large"></ion-icon>
+      </ion-card>
+
+       <!-- Card Skeleton -->
+       <ion-card *ngIf="!dish">
+
+        <ion-card-content>
+          <ion-skeleton-text animated style="height: 150px;"></ion-skeleton-text>
+          <ion-card-title>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </ion-card-title>
+          <p>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+          </p>
+        </ion-card-content>
+        <ion-icon> <ion-skeleton-text animated></ion-skeleton-text> </ion-icon>
+      </ion-card>
+
+    </ion-col>
+
+    <!--div class="spinner" [hidden]="leader || leaderErrMess">
+      <ion-spinner color="tertiary" name="dots"></ion-spinner>
+    </div>
+    <div-- *ngIf="leaderErrMess">
+      <h2>Error</h2>
+      <h4>{{ leaderErrMess }}</h4>
+    </div-->
+  </ion-row>
+</ion-grid>
+</ion-content>
