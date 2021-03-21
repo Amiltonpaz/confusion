@@ -1,11 +1,11 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-buttons>
-      <ion-back-button  (click)="dismiss()">
+    <ion-buttons slot="start">
+      <ion-button  (click)="dismiss()">
         <ion-icon name="close"></ion-icon>
-      </ion-back-button>
+      </ion-button>
     </ion-buttons>
-    <ion-title>Register</ion-title>
+    <ion-title slot="end">Register</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -19,39 +19,42 @@
       <ion-grid>
         <ion-row>
           <ion-col>
-            <ion-button (click)="getPicture()">Tirar Selfie</ion-button>
+            <ion-buttons>
+              <ion-button slot="start" (click)="getPicture()">Tirar Selfie</ion-button>
+              <ion-button slot="end" (click)="getPictureFromLibrary()">Obter da Galeria</ion-button>
+            </ion-buttons>
           </ion-col>
         </ion-row>
       </ion-grid>
 
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <ion-item>
-          <ion-label floating>Nome</ion-label>
+          <ion-label position="floating">Nome</ion-label>
           <ion-input type="text" formControlName="firstName"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label floating>Sobrenome</ion-label>
+          <ion-label position="floating">Sobrenome</ion-label>
           <ion-input type="text" formControlName="lastName"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label floating> User Name</ion-label>
+          <ion-label position="floating"> User Name</ion-label>
           <ion-input type="text" formControlName="userName"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label floating> Senha</ion-label>
+          <ion-label position="floating"> Senha</ion-label>
           <ion-input type="text" formControlName="password"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label floating> Fone</ion-label>
+          <ion-label position="floating"> Fone</ion-label>
           <ion-input type="text" formControlName="telnum" pattern="[0-9]"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label floating> Email</ion-label>
+          <ion-label position="floating"> Email</ion-label>
           <ion-input type="email" formControlName="email"></ion-input>
         </ion-item>
 

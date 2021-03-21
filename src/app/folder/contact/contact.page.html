@@ -9,8 +9,10 @@
 
 <ion-content>
   <ion-card>
-    <ion-card-subtitle color="primary">Our Address</ion-card-subtitle>
-    <ion-card-content class="contatos">
+    <ion-card-header color="primary">
+      <ion-card-title>Nosso Endereço</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
       <p>
         121, Clear Water Bay Road
         Clear Water Bay, Kowloon
@@ -24,10 +26,10 @@
     <div class="row">
 
         <ion-buttons>
-          <ion-button>
+          <ion-button slot="start" (click)="sendCall()">
             <ion-icon icon-left name="call" color="primary"></ion-icon>Ligar
           </ion-button>
-          <ion-button (click)="sendEmail()">
+          <ion-button slot="end" (click)="sendEmail()">
             <ion-icon  name="mail" color="primary"></ion-icon>Email
           </ion-button>
         </ion-buttons>

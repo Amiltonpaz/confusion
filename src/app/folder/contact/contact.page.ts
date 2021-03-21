@@ -1,5 +1,6 @@
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
 import { Component, OnInit } from '@angular/core';
+import { CallNumber } from '@ionic-native/call-number/ngx'
 
 
 @Component({
@@ -10,10 +11,16 @@ import { Component, OnInit } from '@angular/core';
 export class ContactPage implements OnInit {
 
   constructor(
-    private emailcomposer: EmailComposer
+    private emailcomposer: EmailComposer,
+    private callNumber: CallNumber
   ) { }
 
   ngOnInit() {
+  }
+
+  sendCall() {
+    this.callNumber.callNumber('81981372991',true)
+    .then((sucess) => console.log(sucess), (err) => console.log(err));
   }
 
   sendEmail() {

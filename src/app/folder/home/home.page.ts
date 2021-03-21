@@ -7,7 +7,7 @@ import { Leader } from 'src/shared/leader';
 import { baseURL } from './../../../shared/baseurl';
 
 import { Component, OnInit, Inject } from '@angular/core';
-import 'hammerjs';
+
 
 
 

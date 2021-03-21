@@ -48,12 +48,16 @@ export class LoginPage implements OnInit {
   }
 
   async openRegister(){
-    let modal = this.modalCtrl.create({
+    const regModal = this.modalCtrl.create({
       component: RegisterPage
     });
-    (await modal).present();
+    (await regModal).present();
 
-    (await modal).onDidDismiss().then( () => this.goBack());
+   (await regModal).onDidDismiss();
+  }
+
+  dismiss() {
+    this.modalCtrl.dismiss(true);
   }
 
   onSubmit() {
@@ -73,7 +77,7 @@ export class LoginPage implements OnInit {
   }
 
   goBack() {
-    this.modalCtrl.dismiss();
+    this.modalCtrl.dismiss(true);
   }
 
 }

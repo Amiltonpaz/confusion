@@ -1,3 +1,4 @@
+import { CallNumber } from '@ionic-native/call-number/ngx';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,14 +17,20 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { EmailComposer } from "@ionic-native/email-composer/ngx";
-import { SocialSharing } from '@ionic-native/social-sharing/ngx'
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { Camera } from '@ionic-native/camera/ngx';
+import { Network } from '@ionic-native/network/ngx';
+
+
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(),
     AppRoutingModule, HttpClientModule, IonicStorageModule.forRoot(),
     BrowserAnimationsModule, FormsModule, CommonModule, ReactiveFormsModule],
-  providers: [SplashScreen, StatusBar, LocalNotifications, EmailComposer, SocialSharing,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+  providers: [SplashScreen, StatusBar, LocalNotifications, EmailComposer,
+    SocialSharing, Camera, Network, CallNumber,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   { provide: 'BaseURL', useValue: baseURL }],
   bootstrap: [AppComponent],
 })

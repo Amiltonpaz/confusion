@@ -43,7 +43,6 @@ export class RegisterPage implements OnInit {
       quality: 100,
       targetHeight: 100,
       targetWidth: 100,
-      correctOrientation: true,
       allowEdit: true,
       destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.PNG,
@@ -55,7 +54,17 @@ export class RegisterPage implements OnInit {
     this.camera.getPicture(options).then((imageData) => {
       this.image = imageData;
     },
-    (err) => { console.log('Erro obtendo imagem')});
+    (err) => { console.log('Erro obtendo imagem' + err)});
+  }
+
+  getPictureFromLibrary() {
+    const libOptions: CameraOptions = {
+
+      mediaType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      allowEdit: true
+    }
+
+    this.camera.getPicture(libOptions);
   }
 
   onSubmit() {
